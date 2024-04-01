@@ -1,7 +1,5 @@
-import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import {Fonts} from '../../constants';
-import {Colors} from '../../constants/colors';
+import {Colors, Fonts} from '../../constants';
 
 interface SearchBarProps {
   value: string;
@@ -11,10 +9,10 @@ interface SearchBarProps {
 const SearchBar = ({value, onChangeText}: SearchBarProps) => {
   return (
     <TextInput
+      placeholder="Search Your City"
+      placeholderTextColor={Colors.gray}
       value={value}
       onChangeText={onChangeText}
-      placeholder="Enter Your City Name..."
-      placeholderTextColor={Colors.gray}
       style={styles.searchInput}
     />
   );

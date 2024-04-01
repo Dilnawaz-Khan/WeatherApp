@@ -1,16 +1,15 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-
-import {WeatherImagesType} from '../../types';
-import {WeatherData} from '../../types/WeatherData';
 import {Colors, Fonts, WeatherImage} from '../../constants';
+import {WeatherImagesType} from '../../types/WeatherImagesType';
 import {InvalidCity} from '..';
-
-interface WeatherCardProps {
-  data: undefined | WeatherData;
-}
+import {WeatherResponse} from '../../types';
 
 const windSpeedIcon = require('../../assets/icons/wind.png');
 const humidityIcon = require('../../assets/icons/humidity.png');
+
+interface WeatherCardProps {
+  data: WeatherResponse | undefined;
+}
 
 const WeatherCard = ({data}: WeatherCardProps) => {
   if (data === undefined) return;
@@ -22,13 +21,13 @@ const WeatherCard = ({data}: WeatherCardProps) => {
         style={styles.image}
       />
       <View style={styles.weatherNCityContainer}>
-        <Text style={styles.temp}>{Math.round(data.main.temp)} °C</Text>
+        <Text style={styles.temp}>{Math.round(data.main.temp)}°C</Text>
         <Text style={styles.cityName}>{data.name}</Text>
       </View>
       <View style={styles.weatherDetails}>
         <View style={styles.detailsItemContainer}>
           <Image source={humidityIcon} style={styles.detailImage} />
-          <Text style={styles.detailsTxt}>{data.main.humidity} %</Text>
+          <Text style={styles.detailsTxt}>{data.main.humidity}%</Text>
         </View>
         <View style={styles.detailsItemContainer}>
           <Image source={windSpeedIcon} style={styles.detailImage} />
@@ -80,8 +79,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   detailImage: {
-    height: 25,
     width: 25,
+    height: 25,
   },
   detailsTxt: {
     fontSize: 20,

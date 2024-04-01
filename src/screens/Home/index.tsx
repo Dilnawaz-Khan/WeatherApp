@@ -1,15 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
-import {SearchBar, SearchButton, WeatherCard} from '../../components';
 import {useEffect, useState} from 'react';
-import {DAL} from '../../api';
+import {StyleSheet, View} from 'react-native';
+import {SearchBar, SearchButton, WeatherCard} from '../../components';
+import {DAL} from '../../api/DAL';
 import {Endpoints} from '../../constants';
 import {WeatherResponse} from '../../types';
-import {WeatherData} from '../../types/WeatherData';
 
 const Home = () => {
   const [cityName, setCityName] = useState('Islamabad');
-  const [weatherData, setWeatherData] = useState<WeatherData | undefined>();
   const [isLoading, setIsLoading] = useState(false);
+  const [weatherData, setWeatherData] = useState<WeatherResponse | undefined>();
 
   useEffect(() => {
     handleOnPress();
@@ -29,10 +28,11 @@ const Home = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <View style={styles.container}>
       <SearchBar value={cityName} onChangeText={setCityName} />
-      <SearchButton onPress={handleOnPress} loading={isLoading} />
+      <SearchButton loading={isLoading} onPress={handleOnPress} />
       <WeatherCard data={weatherData} />
     </View>
   );

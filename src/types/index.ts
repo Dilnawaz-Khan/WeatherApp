@@ -1,3 +1,2 @@
-export * from './WeatherResponse';
-export * from './WeatherData';
 export * from './WeatherImagesType';
+export * from './WeatherResponse';

@@ -11,7 +11,7 @@ export interface WeatherResponse {
   timezone: number;
   id: number;
   name: string;
-  cod: string;
+  cod: number | string;
 }
 
 interface Sys {
@@ -39,6 +39,8 @@ interface Main {
   temp_max: number;
   pressure: number;
   humidity: number;
+  sea_level: number;
+  grnd_level: number;
 }
 
 interface Weather {
@@ -51,9 +53,4 @@ interface Weather {
 interface Coord {
   lon: number;
   lat: number;
-}
-
-export interface NotFound {
-  cod: string;
-  message: string;
 }

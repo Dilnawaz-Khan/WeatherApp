@@ -3,10 +3,9 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native';
 import {Home} from './src/screens';
+
 const bg = require('./src/assets/images/background.jpg');
 
 const App = () => {
@@ -14,8 +13,8 @@ const App = () => {
     <ImageBackground source={bg} style={styles.imgContainer}>
       <StatusBar
         translucent
-        barStyle={'light-content'}
         backgroundColor={'transparent'}
+        barStyle={'light-content'}
       />
       <SafeAreaView style={styles.subContainer}>
         <Home />

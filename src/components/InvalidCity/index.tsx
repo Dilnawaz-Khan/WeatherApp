@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 20,
-    color: Colors.white,
     fontFamily: Fonts.Medium,
+    color: Colors.white,
   },
 });

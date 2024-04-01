@@ -4,11 +4,8 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
-import React from 'react';
-import {Colors} from '../../constants/colors';
-import {Fonts} from '../../constants';
+import {Colors, Fonts} from '../../constants';
 
 const searchIcon = require('../../assets/icons/search.png');
 
@@ -19,12 +16,12 @@ interface SearchButtonProps {
 
 const SearchButton = ({loading, onPress}: SearchButtonProps) => {
   return (
-    <Pressable disabled={loading} style={styles.container} onPress={onPress}>
+    <Pressable disabled={loading} onPress={onPress} style={styles.container}>
       <Image source={searchIcon} style={styles.searchIcon} />
       {loading ? (
         <ActivityIndicator size={'small'} color={Colors.primary} />
       ) : (
-        <Text style={styles.searchTxt}>Search</Text>
+        <Text style={styles.searchText}>Search</Text>
       )}
     </Pressable>
   );
@@ -43,13 +40,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     gap: 10,
   },
-  searchIcon: {
-    width: 20,
-    height: 20,
-  },
-  searchTxt: {
+  searchText: {
     fontSize: 18,
     color: Colors.black,
     fontFamily: Fonts.Medium,
+  },
+  searchIcon: {
+    width: 20,
+    height: 20,
   },
 });
